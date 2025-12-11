@@ -11,7 +11,7 @@ export default function Profilepic() {
   return (
     <div
       id="home"
-      className="flex flex-col md:flex-row justify-center items-center container mx-auto min-h-[90vh] gap-10 px-4 md:px-10 relative"
+      className=" pt-30 flex flex-col md:flex-row justify-center items-center container mx-auto min-h-[90vh] gap-10 px-4 md:px-10 relative"
     >
       {/* Text Section */}
       <div className="w-full md:w-1/2 max-w-lg text-center md:text-left flex flex-col items-center md:items-start">
