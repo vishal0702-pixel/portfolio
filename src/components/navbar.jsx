@@ -12,26 +12,35 @@ export default function Navbar() {
       className="
         fixed top-0 left-0 w-full 
         flex justify-between items-center
-        text-2xl p-8 goldman-regular text-white
-       
-        z-50                             /* Always on top */
-            
+        p-4 sm:p-6 md:p-8
+        text-white z-50
       "
     >
-      <div className="goldman-bold">
+
+      {/* Left Title */}
+      <div className="goldman-bold 
+        text-lg sm:text-xl md:text-2xl lg:text-3xl 
+        tracking-wide
+      ">
         Hey, I'm Vishal
       </div>
 
-      <div className="flex gap-8 text-2xl goldman-regular">
-       <button onClick={() => scrolltosection("home")}>HOME</button>
+      {/* Right Menu */}
+      <div
+        className="
+          flex 
+          gap-4 sm:gap-6 md:gap-8 lg:gap-12
+          text-sm sm:text-lg md:text-xl lg:text-2xl
+          goldman-regular
+        "
+      >
+        <button onClick={() => scrolltosection("home")}>HOME</button>
         <button onClick={() => scrolltosection("skills")}>SKILLS</button>
         <button onClick={() => scrolltosection("projects")}>PROJECT</button>
-       
-
-
-         <button onClick={() => scrolltosection("about")}>ABOUT</button>
+        <button onClick={() => scrolltosection("about")}>ABOUT</button>
         <button onClick={() => scrolltosection("contact")}>CONTACT</button>
       </div>
+
     </div>
   );
 }

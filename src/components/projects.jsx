@@ -45,26 +45,25 @@ export default function Projects() {
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".project-card");
-
     gsap.set(cards, { height: 480 });
 
     function updateCards(activeIndex) {
       cards.forEach((c, i) => {
         if (i === activeIndex) {
-          gsap.to(c, { 
-            scale: 1, 
-            opacity: 1, 
-            filter: "blur(0px)", 
-            boxShadow: "0 20px 50px rgba(0,0,0,0.5)", 
-            duration: 0.4 
+          gsap.to(c, {
+            scale: 1,
+            opacity: 1,
+            filter: "blur(0px)",
+            boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
+            duration: 0.4,
           });
         } else {
-          gsap.to(c, { 
-            scale: 0.9, 
-            opacity: 0.5, 
-            filter: "blur(5px)", 
-            boxShadow: "0 10px 20px rgba(0,0,0,0.3)", 
-            duration: 0.4 
+          gsap.to(c, {
+            scale: 0.9,
+            opacity: 0.5,
+            filter: "blur(5px)",
+            boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
+            duration: 0.4,
           });
         }
       });
@@ -97,10 +96,16 @@ export default function Projects() {
   return (
     <div id="projects" className="bg-black mb-20">
       <section ref={containerRef} className="relative py-12">
-        
+
+        {/* PROJECT HEADING */}
         <h1
           ref={headingRef}
-          className="project-heading goldman-bold text-6xl md:text-7xl mb-12 flex justify-center"
+          className="
+            project-heading goldman-bold 
+            text-5xl md:text-7xl 
+            flex justify-center 
+            mb-24
+          "
           style={{
             WebkitTextStroke: "2px black",
             color: "white",
@@ -109,27 +114,42 @@ export default function Projects() {
           PROJECTS
         </h1>
 
-        <div className="project-stack flex flex-col gap-24">
+        {/* ADDED TOP PADDING TO FIX OVERLAP */}
+        <div className="project-stack flex flex-col gap-24 pt-32">
+
           {projects.map((p, id) => (
             <div
               key={id}
-              className="project-card bg-[#111] text-white w-[70%] mx-auto rounded-2xl p-10 flex gap-10 transition-all duration-300"
-              style={{ boxShadow: "0 10px 20px rgba(0,0,0,0.3)", position: "relative" }}
+              className="
+                project-card bg-[#111] text-white 
+                w-[90%] md:w-[70%] mx-auto 
+                rounded-2xl p-10 
+                flex flex-col md:flex-row 
+                gap-10 
+                transition-all duration-300 mt-20
+              "
+              style={{
+                boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
+              }}
             >
+
               {/* TEXT SECTION */}
-              <div className="flex flex-col justify-center w-1/2">
-                <h1 className="text-4xl goldman-bold">{p.domain}</h1>
-                <h2 className="text-3xl goldman-bold">{p.title}</h2>
-                <h3 className="text-xl text-gray-400 mt-4">{p.desc}</h3>
+              <div className="flex flex-col justify-center w-full md:w-1/2">
+                <h1 className="text-3xl md:text-4xl goldman-bold">{p.domain}</h1>
+                <h2 className="text-2xl md:text-3xl goldman-bold">{p.title}</h2>
+                <h3 className="text-lg md:text-xl text-gray-400 mt-4">{p.desc}</h3>
 
                 {/* BUTTONS */}
                 <div className="flex gap-4 mt-6">
                   <a
                     href={p.live}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 border border-white text-black rounded-lg  bg-white
-                               transition-all duration-300 hover:bg-white hover:text-black hover:scale-105"
+                    className="
+                      px-6 py-2 border border-white 
+                      text-black rounded-lg bg-white 
+                      transition-all duration-300 
+                      hover:bg-white hover:text-black hover:scale-105
+                    "
                   >
                     Live
                   </a>
@@ -137,9 +157,12 @@ export default function Projects() {
                   <a
                     href={p.github}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 border border-white text-white rounded-lg 
-                               transition-all duration-300 hover:bg-black hover:scale-105"
+                    className="
+                      px-6 py-2 border border-white 
+                      text-white rounded-lg 
+                      transition-all duration-300 
+                      hover:bg-black hover:scale-105
+                    "
                   >
                     GitHub
                   </a>
@@ -147,16 +170,21 @@ export default function Projects() {
               </div>
 
               {/* IMAGE SECTION */}
-              <div className="image-section w-1/2">
+              <div className="image-section w-full md:w-1/2">
                 <img
                   src={p.img}
-                  className="w-full h-full object-cover rounded-xl"
+                  className="
+                    w-full h-[250px] md:h-full 
+                    object-cover rounded-xl 
+                    transition-all
+                  "
                 />
               </div>
+
             </div>
           ))}
-        </div>
 
+        </div>
       </section>
     </div>
   );
