@@ -38,7 +38,7 @@ export default function Info() {
       {/* Heading Section */}
       <div className="text-center mb-10">
         <h1 className="goldman-bold text-white text-5xl">
-          Hi, I’m Vishal Kumar t 
+          Hi, I’m Vishal Kumar 
         </h1>
         <h2 className="goldman-bold text-4xl text-blue-400 animate-bounce-in-out mt-2">
           Full-Stack Developer

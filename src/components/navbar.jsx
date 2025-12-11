@@ -31,7 +31,7 @@ export default function Navbar() {
           flex 
           gap-4 sm:gap-6 md:gap-8 lg:gap-12
           text-sm sm:text-lg md:text-xl lg:text-2xl
-          goldman-regular
+          goldman-regular hover: text-gray-400
         "
       >
         <button onClick={() => scrolltosection("home")}>HOME</button>
