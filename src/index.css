@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+.goldman-regular {
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+}
+
+.goldman-bold {
+  font-family: "Goldman", sans-serif;
+  font-weight: 700;
+}
+.trapezium-left-slanted-fade {
+  width: 900px;           /* adjust width of the strip */
+  height: 300px;          /* full height */
+
+  /* Gradient: transparent on left, black on right */
+  background: linear-gradient(to right, transparent, rgb(0, 0, 0));
+
+  /* Left slanted trapezium: top-left higher than bottom-left */
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+/* Rotating ring animation */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animated ring around profile picture with gaps */
+.profile-ring {
+  position: absolute;
+  inset:0;
+ 
+  border-radius: 50%;
+  border: 5px solid transparent;
+  box-sizing: border-box;
+
+  /* White / light gray border segments */
+  border-top-color: rgba(255, 255, 255, 0.9);
+  border-right-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-left-color: transparent;
+
+  animation: rotateRing 3s linear infinite,
+             glitchBreak 1.8s ease-in-out infinite;
+}
+
+/* Rotate continuously */
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Random break + reconnect effect */
+@keyframes glitchBreak {
+  0%, 100% {
+    border-top-color: rgba(255, 255, 255, 0.9);
+    border-right-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    border-left-color: transparent;
+  }
+  40% {
+    border-top-color: transparent;
+  }
+  60% {
+    border-right-color: transparent;
+  }
+  80% {
+    border-bottom-color: transparent;
+  }
+}
+
+.image-section {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#smooth-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-card {
+  transition: all 0.1s ease;
+}
+
+.project-heading {
+  position: sticky;
+  top: 40px;
+  z-index: 50;
+}
+.blur-card {
+  filter: blur(4px);
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+@media (max-width: 580px) {
+  .project-card {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Glass effect + card styling */
+.skillcard {
+  width: 160px;
+  height: 220px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover animation */
+.skillcard:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Image style */
+.skill-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Skill text */
+.skill-name {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+
+.skill-level {
+  color: #ccc;
+  margin-top: 4px;
+}
+
+/* Scroll animation container */
+.scroll-container {
+  width: 200%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track that moves left */
+.scroll-track {
+  
+  display: flex;
+  width: max-content;
+  animation: scroll-left 25s linear infinite;
+}
+
+/* Infinite scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-track {
+  height:300px;
+  display: flex;
+  width: max-content;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scrollAnimation 18s linear infinite;
+}
+
+
+/* Animate Full-Stack Developer text */
+@keyframes bounce-in-out {
+  0%, 100% { opacity: 0; transform: translateY(-10px); }
+  50% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-bounce-in-out {
+  animation: bounce-in-out 2s ease-in-out infinite;
+}
+
+/* Slide-in animation for image box */
+@keyframes slideRight {
+  0% { transform: translateX(200px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slideRight 1s ease-out forwards;
+}
+
+/* Optional Tailwind override for rounded image box */
+.image-box {
+  width: 100%;
+  height: 500px; /* same as text box height */
+  background-color: #1f1f1f; /* fallback if image not loaded */
+}
+/* Full-Stack Developer heading bounce */
+@keyframes bounce-in-out {
+  0%, 100% { opacity: 0; transform: translateY(-10px); }
+  50% { opacity: 1; transform: translateY(0); }
+}
+.animate-bounce-in-out {
+  animation: bounce-in-out 2s ease-in-out infinite;
+}
+
+/* Slide-in from left */
+@keyframes slideLeft {
+  0% { transform: translateX(-200px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.slide-in-left {
+  animation: slideLeft 1s ease-out forwards;
+}
+
+/* Slide-in from right */
+@keyframes slideRight {
+  0% { transform: translateX(200px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.slide-in-right {
+  animation: slideRight 1s ease-out forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
